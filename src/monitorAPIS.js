@@ -22,7 +22,7 @@ const monitorAPIS = (function() {
 				'appVersion',
 				'appCodeName',
 				'cookieEnabled'
-			]
+			],
 		};
 
 		// if it's undefined, define it.
@@ -51,9 +51,16 @@ const monitorAPIS = (function() {
 				// set the default to false
 				window.navigator.monitorAPI[subAttr] = false;
 
-				// Overwrite the default getter
+				// Overwrite the default getter for the default object
+				window[attr].__defineGetter__(subAttr, () => {
+					// console.log(subAttr);
+					window.navigator.monitorAPI[subAttr] = true;
+					return originalValues[subAttr];
+				});
+
+				// Overwrite the default getter for the window getter
 				window.__defineGetter__(subAttr, () => {
-					console.log(subAttr);
+					// console.log(subAttr);
 					window.navigator.monitorAPI[subAttr] = true;
 					return originalValues[subAttr];
 				});

@@ -10,17 +10,23 @@ function delay(time) {
 
 ;(async () => {
 	console.log("Starting....");
-	const browser = await puppeteer.launch();
+	const browser = await puppeteer.launch({
+		headless: false
+	});
+
 	const page = await browser.newPage();
+	await page.setDefaultNavigationTimeout(0); 
+
 	await page.evaluateOnNewDocument(apimonitor);
 
 
 	console.log("Oppening page");
 
-	await page.goto('http://google.com/');
+	// await page.goto('http://google.com/');
+	await page.goto('https://amiunique.org/fp/');
 
-	console.log("Waiting 5 seconds");
-	delay (5000);
+	// console.log("Waiting 5 seconds");
+	// await delay (5000);
 
 	const monitored = await page.evaluate(() => {
 		return new Promise(resolve => {
