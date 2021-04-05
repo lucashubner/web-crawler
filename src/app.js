@@ -23,11 +23,11 @@ function delay(time) {
 		]
 	});
 
-
-	console.log(sitesObj);
+	var result = [];
 	for ( let site in sitesObj.sites) {
 		console.log("Oppening page");
 		console.log(sitesObj.sites[site]);
+
 		const page = await browser.newPage();
 		await page.setDefaultNavigationTimeout(0); 
 		await page.evaluateOnNewDocument(apimonitor);
@@ -45,10 +45,14 @@ function delay(time) {
 				}, 200);
 			});
 		});
-
-		console.log(monitored);
+		monitored['site'] = sitesObj.sites[site];
+		result.push(monitored);
 		page.close();
 	}
+
+	let data = JSON.stringify(result);
+	
+	await fs.writeFileSync('out/results_'+ Date.now()+'.json', data);
 	await browser.close();
 
 })();
