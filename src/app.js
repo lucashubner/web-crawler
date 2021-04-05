@@ -10,8 +10,14 @@ function delay(time) {
 
 ;(async () => {
 	console.log("Starting....");
+
+	// Args --no-sandbox --disable-gpu necessary to run on docker environment
 	const browser = await puppeteer.launch({
-		headless: false
+		headless: true,
+		args: [
+			"--no-sandbox", 
+			"--disable-gpu",
+		]
 	});
 
 	const page = await browser.newPage();
