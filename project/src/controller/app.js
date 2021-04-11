@@ -2,12 +2,6 @@ const crawler = require('./crawler')
 
 const fs = require('fs');
 
-function delay(time) {
-   return new Promise(function(resolve) { 
-       setTimeout(resolve, time)
-   });
-}
-
 
 ;(async () => {
 	console.log("Starting....");

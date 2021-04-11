@@ -7,7 +7,8 @@ const apimonitor = require('./monitorAPIS').apimonitor
 		   setTimeout(resolve, time)
 	   });
 	}
-	const crawl = async function (site){
+	const crawl = async function (site, crawl_id){
+		const SiteCrawl = require ('../model/site_crawl.model');
 		// Args --no-sandbox --disable-gpu necessary to run on docker environment
 		const browser = await puppeteer.launch({
 			headless: true,
@@ -37,10 +38,19 @@ const apimonitor = require('./monitorAPIS').apimonitor
 			});
 		});
 
-		monitored['site'] = site
-
+		monitored['ready'] = true;
+		await console.log(monitored);
 		page.close();
 		await browser.close();
+
+		SiteCrawl.update(crawl_id, monitored, function ( err, res ){
+			if ( err ){
+				console.log("Error updating crawl");
+			} else {
+				console.log("Crawl updated");
+
+			}
+		});
 		return monitored;
 	}
 

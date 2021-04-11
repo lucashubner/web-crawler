@@ -1,0 +1,357 @@
+{
+	"info": {
+		"_postman_id": "1523510d-e0ac-43c1-9d61-67e80ea17133",
+		"name": "SiteCrawler",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Site",
+			"item": [
+				{
+					"name": "Get Sites",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/v1/sites",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"v1",
+								"sites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Site",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/v1/sites/:id",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"v1",
+								"sites",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1",
+									"description": "id of the site you want to retrieve"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Site",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"site\" : \"http://example.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/v1/sites/",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"v1",
+								"sites",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Site",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"site\" : \"http://example.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/v1/sites/:id",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"v1",
+								"sites",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1",
+									"description": "id of the site you want to update"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Site",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/v1/sites/:id",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"v1",
+								"sites",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1",
+									"description": "id of the site you want to update"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "SiteCrawl",
+			"item": [
+				{
+					"name": "Get Site Crawls",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/v1/sites/:site_id/site_crawls/",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"v1",
+								"sites",
+								":site_id",
+								"site_crawls",
+								""
+							],
+							"variable": [
+								{
+									"key": "site_id",
+									"value": "1",
+									"description": "id of the site where the site crawl is on"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Site Crawl",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/v1/sites/:site_id/site_crawls/:id",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"v1",
+								"sites",
+								":site_id",
+								"site_crawls",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "site_id",
+									"value": "1",
+									"description": "id of the site where the site crawl is on"
+								},
+								{
+									"key": "id",
+									"value": "1",
+									"description": "id of the site crawl"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Site Crawl",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/v1/sites/:site_id/site_crawls/",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"v1",
+								"sites",
+								":site_id",
+								"site_crawls",
+								""
+							],
+							"variable": [
+								{
+									"key": "site_id",
+									"value": "1",
+									"description": "id of the site where you want to create a crawl"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Site Crawl",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"platform\": 0,\n    \"userAgent\": 0,\n    \"plugins\": 0,\n    \"mimeTypes\": 0,\n    \"doNotTrack\": 0,\n    \"languages\": 0,\n    \"productSub\": 0,\n    \"language\": 0,\n    \"vendor\": 0,\n    \"oscpu\": 0,\n    \"hardwareConcurrency\": 0,\n    \"cpuClass\": 0,\n    \"webdriver\": 1,\n    \"maxTouchPoints\": 0,\n    \"appVersion\": 0,\n    \"appCodeName\": 0,\n    \"cookieEnabled\": 0,\n    \"ready\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/v1/sites/:site_id/site_crawls/:id",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"v1",
+								"sites",
+								":site_id",
+								"site_crawls",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "site_id",
+									"value": "1",
+									"description": "id of the site where the site crawl is on"
+								},
+								{
+									"key": "id",
+									"value": "1",
+									"description": "id of the site crawl you want to update"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Site Crawl",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/v1/sites/:site_id/site_crawls/:id",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"v1",
+								"sites",
+								":site_id",
+								"site_crawls",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "site_id",
+									"value": "1",
+									"description": "id of the site where the site crawl is on"
+								},
+								{
+									"key": "id",
+									"value": "1",
+									"description": "id of the site crawl you want to delete"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "8893129a-ea82-4311-9765-9f71ee7827f0",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "1d6c99ff-aaf2-4a6f-9c84-62ca479c193c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "f5d226ef-2a3b-40a3-80d4-44eebbc08a95",
+			"key": "url",
+			"value": "http://localhost:3000/"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

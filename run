@@ -1,0 +1,1 @@
+docker run --add-host host.docker.internal:host-gateway -v /home/lg/Documentos/doutorado/teste/out:/usr/src/app/out node-doc

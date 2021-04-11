@@ -1,0 +1,8 @@
+docker run \
+--detach \
+--name=mysql-database \
+--env="MYSQL_ROOT_PASSWORD=123456" \
+--publish 6603:3306 \
+--volume=$(pwd)/mysql/conf.d:/etc/mysql/conf.d \
+--volume=$(pwd)/mysql/storage/:/var/lib/mysql \
+mysql
