@@ -48,7 +48,7 @@ Site.findAll = function ( result ) {
 };
 
 Site.update = function ( id, site, result ) {
-	dbConn.query("UPDATE site SET site = ? where id = ?", site.site, id, function ( err, res ){
+	dbConn.query("UPDATE site SET site = ? where id = ?", [site.site, id], function ( err, res ){
 		if ( err ) {
 			console.log("Error: ", err);
 			result( null, err );

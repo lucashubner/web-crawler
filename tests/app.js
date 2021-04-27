@@ -1,4 +1,4 @@
-const crawler = require('./crawler')
+const crawler = require('./crawler.js')
 
 const fs = require('fs');
 

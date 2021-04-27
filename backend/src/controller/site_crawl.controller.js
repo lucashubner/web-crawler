@@ -58,5 +58,6 @@
 			res.send( err );
 		}
 		res.json({ message: "SiteCrawl successfully deleted"});
+		res.status(200).end();
 	});
 };
